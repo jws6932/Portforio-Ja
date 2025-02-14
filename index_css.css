@@ -1,0 +1,622 @@
+/* 🌙 ปรับธีมสี */
+body {
+    background: linear-gradient(to bottom, #000000, #0B192C);
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 🔹 Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 0;
+    transition: 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* 📌 เมื่อเลื่อนลงให้ซ่อน Navbar */
+.navbar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #FF6500; /* เปลี่ยนสี Hover เป็นสีส้ม */
+    border-bottom: 2px solid #FF6500;
+}
+
+/* 🎨 Sidebar เมนู (Floating เมนูด้านขวา) */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 15px 0 0 15px;
+    padding: 10px;
+    z-index: 999;
+    display: none;
+}
+
+/* 🌟 เมนูใน Sidebar */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #FF6500;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background: #e05400;
+    transform: scale(1.1);
+}
+
+/* 🎯 ปรับสไตล์ของ WELCOME */
+.welcome-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #FF6500; /* ใช้สีส้มให้โดดเด่น */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ✅ สไตล์ของข้อความทักทายเพิ่มเติม */
+#greeting {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #e0e0e0;
+    opacity: 0;
+    animation: fadeInGreeting 2s ease-in-out 1s forwards;
+}
+
+/* ✅ เอฟเฟกต์ให้ข้อความทักทายค่อย ๆ ปรากฏ */
+@keyframes fadeInGreeting {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* 🎯 จัด Layout ให้เท่ากัน 50/50 */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 0 10%;
+}
+
+.hero-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-text {
+    width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #FF6500, #1E3E62);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#dynamic-role {
+    color: #FF6500; /* สีส้ม */
+    font-weight: bold;
+}
+
+/* 🎯 ปรับ Layout รูปภาพ */
+.hero-img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/* 🟠 วงกลมหลัก (ใหญ่สุด) */
+.circle-main {
+    position: absolute;
+    width: 380px; /* ขยายให้ใหญ่ขึ้น */
+    height: 380px;
+    background: #1E3E62; /* สีน้ำเงินสว่าง */
+    border-radius: 50%;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+/* 🔹 วงกลมสุ่มที่ 1 (กลาง) */
+.circle-secondary {
+    position: absolute;
+    width: 320px; /* ขยายให้ใหญ่ขึ้น */
+    height: 320px;
+    background: rgba(11, 25, 44, 0.5); /* น้ำเงินเข้ม */
+    border-radius: 50%;
+    top: 45%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* 🔹 วงกลมสุ่มที่ 2 (เล็กสุด) */
+.circle-extra {
+    position: absolute;
+    width: 250px; /* ขยายให้ใหญ่ขึ้น */
+    height: 250px;
+    background: rgba(30, 62, 98, 0.4); /* น้ำเงินสว่างกว่าตัวแรก */
+    border-radius: 50%;
+    top: 70%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+}
+
+/* 🟠 ปรับขนาดและตำแหน่งของรูป */
+.hero-img img {
+    max-width: 600px;
+    position: absolute;
+    bottom: -200px;
+    z-index: 1;
+    clip-path: ellipse(260px 300px at center 500px);
+}
+
+/* 🟠 ปรับปุ่มให้ดูสวยขึ้น */
+.btn {
+    background: #FF6500; /* สีปุ่มเป็นสีส้ม */
+    color: white;
+    padding: 12px 20px;
+    margin-top: 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #1E3E62; /* เปลี่ยนเป็นน้ำเงินสว่าง */
+    box-shadow: 0 0 20px #FF6500;
+}
+
+/* About Me Section */
+#about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 80px 10%;
+    background: linear-gradient(135deg, rgba(11, 25, 44, 1) 10%, rgba(30, 62, 98, 1) 100%);
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(255, 101, 0, 0.2);
+    max-width: 1000px;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Header */
+#about h2 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #FF6500;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#about h2 i {
+    font-size: 2.8rem;
+}
+
+/* Text Styling */
+.about-text {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    max-width: 750px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* เน้นคำสำคัญ */
+.about-text strong {
+    color: #FF6500;
+}
+
+/* Icon Decoration */
+#about::before, 
+#about::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 101, 0, 0.1);
+    border-radius: 50%;
+    filter: blur(40px);
+}
+
+#about::before {
+    top: -40px;
+    left: -40px;
+}
+
+#about::after {
+    bottom: -40px;
+    right: -40px;
+}
+
+/* Animation */
+@keyframes glowing {
+    0% { box-shadow: 0px 0px 10px rgba(255, 101, 0, 0.4); }
+    50% { box-shadow: 0px 0px 30px rgba(255, 101, 0, 0.6); }
+    100% { box-shadow: 0px 0px 10px rgba(255, 101, 0, 0.4); }
+}
+
+#about {
+    animation: glowing 3s infinite alternate;
+}
+
+/* basic */
+.basic-info-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px;
+    text-align: left;
+}
+
+.basic-info-container h2 {
+    font-size: 2.5rem;
+    color: #FF6500;
+    margin-bottom: 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.info-item {
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-item i {
+    color: #FF6500;
+    font-size: 1.5rem;
+}
+
+/* Career Goals Section */
+#career-goals {
+    text-align: center;
+    padding: 80px 10%;
+    background: linear-gradient(135deg, rgba(255, 101, 0, 0.3) 0%, rgba(11, 25, 44, 1) 100%);
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(255, 101, 0, 0.3);
+    max-width: 900px;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#career-goals h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FF6500;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+#career-goals h2 i {
+    font-size: 2.5rem;
+}
+
+#career-goals p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* วงกลมตกแต่ง */
+#career-goals::before, 
+#career-goals::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 101, 0, 0.1);
+    border-radius: 50%;
+    filter: blur(30px);
+}
+
+#career-goals::before {
+    top: -30px;
+    left: -30px;
+}
+
+#career-goals::after {
+    bottom: -30px;
+    right: -30px;
+}
+
+/* Animation */
+@keyframes glowing {
+    0% { box-shadow: 0px 0px 10px rgba(255, 101, 0, 0.4); }
+    50% { box-shadow: 0px 0px 30px rgba(255, 101, 0, 0.6); }
+    100% { box-shadow: 0px 0px 10px rgba(255, 101, 0, 0.4); }
+}
+
+#career-goals {
+    animation: glowing 3s infinite alternate;
+}
+
+/* General Section Styling */
+.section {
+    padding: 50px 10%;
+    background: transparent; /* ให้สีโปร่งใสเพื่อให้เห็นพื้นหลังไล่สี */
+    color: white;
+    text-align: left;
+}
+
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px 0;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* แบ่งเป็น 2 คอลัมน์ */
+    gap: 30px; /* ระยะห่างระหว่างคอลัมน์ */
+    width: 100%;
+    max-width: 900px;
+}
+
+.skill-category {
+    background: rgba(255, 255, 255, 0.05); /* พื้นหลังโปร่งแสง */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.skill-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #FF6500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.icon-container i, .icon-container img {
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.icon-container i:hover, .icon-container img:hover {
+    transform: scale(1.2);
+}
+
+/* Work Experience Section */
+#experience {
+    padding: 80px 10%;
+    /* background: linear-gradient(135deg, rgba(11, 25, 44, 1) 10%, rgba(30, 62, 98, 1) 100%); */
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Header */
+#experience h2 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #FF6500;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+#experience h2 i {
+    font-size: 2.8rem;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* ปรับตำแหน่งของเส้น Timeline */
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 4px;  /* ความหนาของเส้น Timeline */
+    background: rgba(255, 101, 0, 0.8);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Timeline Item */
+.timeline-item {
+    position: relative;
+    padding: 20px;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 40px;
+    transition: 0.3s;
+    opacity: 0; /* เริ่มต้นเป็นโปร่งใส เพื่อให้ GSAP ทำงาน */
+    transform: translateY(50px);
+}
+
+.timeline-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+/* Job Title */
+.timeline-item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #FF6500;
+}
+
+/* Company */
+.timeline-item h4 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #e0e0e0;
+}
+
+/* Year */
+.timeline-item span {
+    display: block;
+    font-size: 1rem;
+    color: #b0b0b0;
+}
+
+/* 🎨 Contact Section */
+#contact {
+    text-align: center;
+    padding: 50px 10%;
+    background: linear-gradient(180deg, #0B192C, #1E3E62); /* ไล่สีจากธีม */
+    color: white;
+}
+
+/* 📌 หัวข้อ */
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #FF6500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 💬 Contact Container */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* 🛠 Contact Item */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 🖱 Hover Effect */
+.contact-item:hover {
+    transform: translateY(-5px);
+    background: #FF6500;
+    color: white;
+}
+
+/* 📌 Contact Icons */
+.contact-item i {
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+/* ✨ เพิ่มสีให้ไอคอน */
+.contact-item:nth-child(1) i { color: #1877F2; }  /* Facebook */
+.contact-item:nth-child(2) i { color: #06C755; }  /* Line */
+.contact-item:nth-child(3) i { color: #E4405F; }  /* Instagram */
+.contact-item:nth-child(4) i { color: #FF6500; }  /* Email */
